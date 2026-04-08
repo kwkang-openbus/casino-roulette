@@ -166,17 +166,17 @@ export function generateSixLineBets(): BetSpotDef[] {
 // 아웃사이드 베팅 정의
 export function getOutsideBetDefs(): BetSpotDef[] {
   return [
-    { id: 'red', type: 'red', numbers: [...OUTSIDE_BETS.red], label: '빨강' },
-    { id: 'black', type: 'black', numbers: [...OUTSIDE_BETS.black], label: '검정' },
-    { id: 'odd', type: 'odd', numbers: [...OUTSIDE_BETS.odd], label: '홀수' },
-    { id: 'even', type: 'even', numbers: [...OUTSIDE_BETS.even], label: '짝수' },
-    { id: 'low', type: 'low', numbers: OUTSIDE_BETS.low, label: '1-18' },
-    { id: 'high', type: 'high', numbers: OUTSIDE_BETS.high, label: '19-36' },
+    { id: 'red', type: 'red', numbers: [...OUTSIDE_BETS.red], label: 'RED' },
+    { id: 'black', type: 'black', numbers: [...OUTSIDE_BETS.black], label: 'BLACK' },
+    { id: 'odd', type: 'odd', numbers: [...OUTSIDE_BETS.odd], label: 'ODD' },
+    { id: 'even', type: 'even', numbers: [...OUTSIDE_BETS.even], label: 'EVEN' },
+    { id: 'low', type: 'low', numbers: OUTSIDE_BETS.low, label: '1 to 18' },
+    { id: 'high', type: 'high', numbers: OUTSIDE_BETS.high, label: '19 to 36' },
     { id: 'dozen1', type: 'dozen', numbers: OUTSIDE_BETS.dozen1, label: '1st 12' },
     { id: 'dozen2', type: 'dozen', numbers: OUTSIDE_BETS.dozen2, label: '2nd 12' },
     { id: 'dozen3', type: 'dozen', numbers: OUTSIDE_BETS.dozen3, label: '3rd 12' },
-    { id: 'column1', type: 'column', numbers: OUTSIDE_BETS.column1, label: '2:1' },
-    { id: 'column2', type: 'column', numbers: OUTSIDE_BETS.column2, label: '2:1' },
-    { id: 'column3', type: 'column', numbers: OUTSIDE_BETS.column3, label: '2:1' },
+    { id: 'column1', type: 'column', numbers: OUTSIDE_BETS.column1, label: '2 to 1' },
+    { id: 'column2', type: 'column', numbers: OUTSIDE_BETS.column2, label: '2 to 1' },
+    { id: 'column3', type: 'column', numbers: OUTSIDE_BETS.column3, label: '2 to 1' },
   ]
 }
