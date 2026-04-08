@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0A0A0A;
+  --color-bg-card: #141428;
+  --color-bg-surface: #1E1E3A;
+  --color-border-default: #2A2A4A;
+
+  --color-felt-primary: #016D29;
+  --color-felt-dark: #01431E;
+  --color-felt-light: #028A34;
+
+  --color-roulette-red: #E0080B;
+  --color-roulette-black: #1A1A1A;
+  --color-roulette-green: #016D29;
+
+  --color-accent-gold: #F3C620;
+  --color-accent-purple: #7B7CCA;
+  --color-accent-pink: #F4849C;
+  --color-success: #22C55E;
+  --color-danger: #EF4444;
+
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #A0A0B8;
+  --color-text-muted: #606080;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Montserrat', 'Inter', sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 커스텀 애니메이션 */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.4s ease-out;
+}
+
+/* 스크롤바 숨김 */
+.overflow-x-auto::-webkit-scrollbar,
+.overflow-y-auto::-webkit-scrollbar {
+  display: none;
+}
+.overflow-x-auto,
+.overflow-y-auto {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
