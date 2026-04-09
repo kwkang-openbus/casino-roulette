@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useGameStore } from '../store/gameStore'
+import dealerImg from '../assets/dealer-nobg.png'
 
 type DealerState = 'betting' | 'spinning' | 'win' | 'lose'
 
@@ -130,7 +131,7 @@ export default function Dealer() {
           {MESSAGES[state][msgIdx]}
         </div>
         <img
-          src={`${import.meta.env.BASE_URL}dealer-nobg.png`}
+          src={dealerImg}
           alt="dealer"
           style={imgStyle}
           draggable={false}
