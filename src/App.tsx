@@ -10,6 +10,7 @@ import ResultDisplay from './components/ResultDisplay'
 import HistoryBar from './components/HistoryBar'
 import StatisticsPanel from './components/StatisticsPanel'
 import BetTimer from './components/BetTimer'
+import Dealer from './components/Dealer'
 
 export default function App() {
   const gamePhase = useGameStore((s) => s.gamePhase)
@@ -66,9 +67,12 @@ export default function App() {
       {/* 베팅 타이머 */}
       <BetTimer onTimeUp={handleTimerUp} />
 
-      {/* 룰렛 휠 */}
-      <div className="shrink-0 flex items-center justify-center" style={{ maxHeight: '55vh' }}>
+      {/* 룰렛 휠 + 딜러 */}
+      <div className="shrink-0 relative flex items-center justify-center" style={{ maxHeight: '42vh' }}>
         <RouletteWheel />
+        <div className="absolute right-0 bottom-0">
+          <Dealer />
+        </div>
       </div>
 
       {/* 히스토리 바 */}
