@@ -42,27 +42,32 @@ Error generating stack: `+e.message+`
   50% { box-shadow: 0 0 24px 6px rgba(255,200,50,0.8); }
 }
 .dealer-bubble {
-  position: relative;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 6px;
   background: linear-gradient(135deg, rgba(255,220,240,0.96), rgba(255,255,255,0.96));
   color: #1a1a1a;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   border-radius: 14px;
-  padding: 5px 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  padding: 5px 11px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.35);
   animation: bubble-pop 0.35s ease-out;
   white-space: nowrap;
   border: 1px solid rgba(255,160,190,0.35);
+  pointer-events: none;
 }
-.dealer-bubble::before {
+.dealer-bubble::after {
   content: '';
   position: absolute;
-  left: -7px;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 0; height: 0;
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-right: 8px solid rgba(255,220,240,0.96);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid rgba(255,220,240,0.96);
 }
-`;function Ke(){let e=k(e=>e.gamePhase),t=k(e=>e.lastWin),[n,r]=(0,_.useState)(0),i=e===`spinning`?`spinning`:e===`result`?t>0?`win`:`lose`:`betting`;(0,_.useEffect)(()=>{r(Math.floor(Math.random()*We[i].length))},[i]);let a={width:`100%`,height:`100%`,objectFit:`contain`,objectPosition:`bottom center`,transition:`filter 0.5s ease`,...i===`spinning`&&{filter:`brightness(1.05) saturate(1.1)`,animation:`dealer-sway 2s ease-in-out infinite`},...i===`win`&&{filter:`brightness(1.15) saturate(1.2)`,animation:`dealer-celebrate 0.6s ease-in-out infinite`},...i===`lose`&&{filter:`brightness(0.9) saturate(0.85)`,animation:`dealer-shake 2.5s ease-in-out infinite`},...i===`betting`&&{filter:`brightness(1) saturate(1)`,animation:`dealer-breathe 3s ease-in-out infinite`}};return(0,A.jsxs)(`div`,{className:`shrink-0 flex items-center justify-center gap-2 px-3 py-1`,children:[(0,A.jsx)(`style`,{children:Ge}),(0,A.jsx)(`div`,{style:{width:85,height:105,flexShrink:0,filter:i===`win`?`drop-shadow(0 0 8px rgba(255,200,50,0.9))`:i===`lose`?`drop-shadow(0 2px 6px rgba(100,100,150,0.5))`:`drop-shadow(0 2px 8px rgba(255,150,180,0.4))`,animation:i===`win`?`win-glow 1s ease-in-out infinite`:void 0},children:(0,A.jsx)(`img`,{src:`/casino-roulette/dealer-nobg.png`,alt:`dealer`,style:a,draggable:!1})}),(0,A.jsx)(`div`,{className:`dealer-bubble`,children:We[i][n]},`${i}-${n}`)]})}function qe(){let e=k(e=>e.gamePhase),t=k(e=>e.startSpin),n=k(e=>e.setGamePhase),r=k(e=>e.soundEnabled),i=k(e=>e.toggleSound),a=(0,_.useRef)(null);(0,_.useEffect)(()=>(e===`result`&&(a.current=window.setTimeout(()=>{n(`betting`)},3*1e3)),()=>{a.current&&=(clearTimeout(a.current),null)}),[e,n]);let o=(0,_.useCallback)(()=>{k.getState().gamePhase===`betting`&&t()},[t]),s=(0,_.useCallback)(()=>{k.getState().gamePhase===`betting`&&t()},[t]);return(0,A.jsxs)(`div`,{className:`h-full flex flex-col bg-bg-primary overflow-hidden`,children:[(0,A.jsxs)(`header`,{className:`flex items-center justify-between px-3 py-1.5 shrink-0`,children:[(0,A.jsx)(`div`,{children:(0,A.jsx)(`h1`,{className:`font-display text-accent-gold font-bold text-base tracking-tight leading-none`,children:`ROULETTE`})}),(0,A.jsx)(Re,{}),(0,A.jsx)(`button`,{onClick:i,className:`text-text-secondary hover:text-text-primary text-lg w-8 h-8 flex items-center justify-center`,"aria-label":r?`사운드 끄기`:`사운드 켜기`,children:r?`🔊`:`🔇`})]}),(0,A.jsx)(Ue,{onTimeUp:s}),(0,A.jsxs)(`div`,{className:`shrink-0 flex items-end justify-center gap-1`,style:{maxHeight:`42vh`},children:[(0,A.jsx)(Ee,{}),(0,A.jsx)(`div`,{className:`shrink-0 self-end pb-1`,children:(0,A.jsx)(Ke,{})})]}),(0,A.jsx)(Be,{}),(0,A.jsx)(He,{}),(0,A.jsx)(`div`,{className:`flex-1 min-h-0 overflow-y-auto overflow-x-auto`,children:(0,A.jsx)(Ne,{})}),(0,A.jsxs)(`div`,{className:`shrink-0 border-t border-border-default bg-bg-primary pb-[env(safe-area-inset-bottom)]`,children:[(0,A.jsx)(Fe,{}),(0,A.jsx)(Ie,{onSpin:o})]}),(0,A.jsx)(ze,{})]})}(0,v.createRoot)(document.getElementById(`root`)).render((0,A.jsx)(_.StrictMode,{children:(0,A.jsx)(qe,{})}));
+`;function Ke(){let e=k(e=>e.gamePhase),t=k(e=>e.lastWin),[n,r]=(0,_.useState)(0),i=e===`spinning`?`spinning`:e===`result`?t>0?`win`:`lose`:`betting`;(0,_.useEffect)(()=>{r(Math.floor(Math.random()*We[i].length))},[i]);let a={width:`100%`,height:`100%`,objectFit:`contain`,objectPosition:`bottom center`,transition:`filter 0.5s ease`,...i===`spinning`&&{filter:`brightness(1.05) saturate(1.1)`,animation:`dealer-sway 2s ease-in-out infinite`},...i===`win`&&{filter:`brightness(1.15) saturate(1.2)`,animation:`dealer-celebrate 0.6s ease-in-out infinite`},...i===`lose`&&{filter:`brightness(0.9) saturate(0.85)`,animation:`dealer-shake 2.5s ease-in-out infinite`},...i===`betting`&&{filter:`brightness(1) saturate(1)`,animation:`dealer-breathe 3s ease-in-out infinite`}};return(0,A.jsxs)(`div`,{className:`shrink-0 flex flex-col items-center`,children:[(0,A.jsx)(`style`,{children:Ge}),(0,A.jsxs)(`div`,{style:{width:85,height:105,flexShrink:0,filter:i===`win`?`drop-shadow(0 0 8px rgba(255,200,50,0.9))`:i===`lose`?`drop-shadow(0 2px 6px rgba(100,100,150,0.5))`:`drop-shadow(0 2px 8px rgba(255,150,180,0.4))`,animation:i===`win`?`win-glow 1s ease-in-out infinite`:void 0,position:`relative`},children:[(0,A.jsx)(`div`,{className:`dealer-bubble`,children:We[i][n]},`${i}-${n}`),(0,A.jsx)(`img`,{src:`/casino-roulette/dealer-nobg.png`,alt:`dealer`,style:a,draggable:!1})]})]})}function qe(){let e=k(e=>e.gamePhase),t=k(e=>e.startSpin),n=k(e=>e.setGamePhase),r=k(e=>e.soundEnabled),i=k(e=>e.toggleSound),a=(0,_.useRef)(null);(0,_.useEffect)(()=>(e===`result`&&(a.current=window.setTimeout(()=>{n(`betting`)},3*1e3)),()=>{a.current&&=(clearTimeout(a.current),null)}),[e,n]);let o=(0,_.useCallback)(()=>{k.getState().gamePhase===`betting`&&t()},[t]),s=(0,_.useCallback)(()=>{k.getState().gamePhase===`betting`&&t()},[t]);return(0,A.jsxs)(`div`,{className:`h-full flex flex-col bg-bg-primary overflow-hidden`,children:[(0,A.jsxs)(`header`,{className:`flex items-center justify-between px-3 py-1.5 shrink-0`,children:[(0,A.jsx)(`div`,{children:(0,A.jsx)(`h1`,{className:`font-display text-accent-gold font-bold text-base tracking-tight leading-none`,children:`ROULETTE`})}),(0,A.jsx)(Re,{}),(0,A.jsx)(`button`,{onClick:i,className:`text-text-secondary hover:text-text-primary text-lg w-8 h-8 flex items-center justify-center`,"aria-label":r?`사운드 끄기`:`사운드 켜기`,children:r?`🔊`:`🔇`})]}),(0,A.jsx)(Ue,{onTimeUp:s}),(0,A.jsxs)(`div`,{className:`shrink-0 relative flex items-center justify-center`,style:{maxHeight:`42vh`},children:[(0,A.jsx)(Ee,{}),(0,A.jsx)(`div`,{className:`absolute right-0 bottom-0`,children:(0,A.jsx)(Ke,{})})]}),(0,A.jsx)(Be,{}),(0,A.jsx)(He,{}),(0,A.jsx)(`div`,{className:`flex-1 min-h-0 overflow-y-auto overflow-x-auto`,children:(0,A.jsx)(Ne,{})}),(0,A.jsxs)(`div`,{className:`shrink-0 border-t border-border-default bg-bg-primary pb-[env(safe-area-inset-bottom)]`,children:[(0,A.jsx)(Fe,{}),(0,A.jsx)(Ie,{onSpin:o})]}),(0,A.jsx)(ze,{})]})}(0,v.createRoot)(document.getElementById(`root`)).render((0,A.jsx)(_.StrictMode,{children:(0,A.jsx)(qe,{})}));
